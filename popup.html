@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CiteRight</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="icons/icon48.png" alt="CiteRight Logo" class="logo">
+      <h1>CiteRight</h1>
+    </div>
+    
+    <!-- Authentication status -->
+    <div id="auth-status" class="status">
+      <div class="loading-spinner"></div>
+      <span class="status-message">Checking authentication...</span>
+    </div>
+    
+    <!-- Login prompt (shown when not logged in) -->
+    <div id="login-prompt" style="display: none;">
+      <p class="text-center mb-6">Sign in to save references to your CiteRight account.</p>
+      <button id="login-btn" class="btn primary w-full">Sign In</button>
+      
+      <div class="divider">
+        <span>or continue without signing in</span>
+      </div>
+      
+      <p class="text-sm text-center">
+        You can still cite pages without signing in, but your references won't be saved to your account.
+      </p>
+    </div>
+    
+    <!-- Main content (shown when logged in) -->
+    <div id="main-content" style="display: none;">
+      <div class="source-info">
+        <h3>Current Page</h3>
+        <div id="page-details">
+          <p><strong>Title:</strong> <span id="page-title">Loading...</span></p>
+          <p><strong>URL:</strong> <span id="page-url" class="url">Loading...</span></p>
+          <p><strong>Author:</strong> <span id="page-author">Unknown</span></p>
+          <p><strong>Publication:</strong> <span id="page-publication">Unknown</span></p>
+          <p><strong>Published:</strong> <span id="page-date">Unknown</span></p>
+        </div>
+        <button id="edit-details-btn" class="btn secondary">Edit Details</button>
+      </div>
+      
+      <div class="cite-preview">
+        <h3>Citation Preview</h3>
+        <div id="citation-box" class="citation-box">
+          Loading citation...
+        </div>
+      </div>
+      
+      <div class="form-actions">
+        <button id="copy-btn" class="btn secondary">Copy Citation</button>
+        <button id="save-btn" class="btn primary">Save to CiteRight</button>
+      </div>
+    </div>
+    
+    <!-- Edit Form (initially hidden) -->
+    <div id="edit-form" class="form-container" style="display: none;">
+      <h3>Edit Page Details</h3>
+      
+      <form id="reference-form">
+        <div class="form-group">
+          <label for="ref-type">Reference Type</label>
+          <select id="ref-type" class="form-select">
+            <option value="web">Web Source</option>
+            <option value="case">Case</option>
+            <option value="legislation">Legislation</option>
+            <option value="journal">Journal Article</option>
+            <option value="book">Book</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="ref-title">Title</label>
+          <input type="text" id="ref-title" class="form-input" placeholder="Page title">
+        </div>
+        
+        <div class="form-group">
+          <label for="ref-author">Author</label>
+          <input type="text" id="ref-author" class="form-input" placeholder="Author name(s)">
+        </div>
+        
+        <div class="form-group">
+          <label for="ref-publication">Publication / Website</label>
+          <input type="text" id="ref-publication" class="form-input" placeholder="Publication name">
+        </div>
+        
+        <div class="form-group">
+          <label for="ref-date">Publication Date</label>
+          <input type="text" id="ref-date" class="form-input" placeholder="YYYY-MM-DD">
+          <div class="error-message" id="date-error"></div>
+        </div>
+        
+        <div class="form-group">
+          <label for="ref-url">URL</label>
+          <input type="text" id="ref-url" class="form-input" placeholder="URL">
+        </div>
+        
+        <div class="form-group">
+          <label for="ref-notes">Notes (optional)</label>
+          <textarea id="ref-notes" class="form-input" rows="2" placeholder="Add notes about this reference"></textarea>
+        </div>
+        
+        <div class="form-actions">
+          <button type="button" id="cancel-edit-btn" class="btn secondary">Cancel</button>
+          <button type="submit" id="update-btn" class="btn primary">Update Citation</button>
+        </div>
+      </form>
+    </div>
+    
+    <!-- Footer Links -->
+    <div class="footer">
+      <div class="navigation">
+        <a href="history.html" class="nav-btn">History</a>
+        <a href="settings.html" class="nav-btn">Settings</a>
+      </div>
+      <p class="text-sm text-center">
+        All references follow NZLSG guidelines
+      </p>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CiteRight - Reference History</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="icons/icon48.png" alt="CiteRight Logo" class="logo">
+      <h1>CiteRight</h1>
+    </div>
+    
+    <div class="navigation">
+      <a href="popup.html" class="nav-btn">Back to Home</a>
+    </div>
+    
+    <div class="content">
+      <h2>Saved References</h2>
+      
+      <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Search references..." class="form-input">
+        <div class="filter-container">
+          <select id="type-filter" class="form-select">
+            <option value="all">All Types</option>
+            <option value="case">Cases</option>
+            <option value="legislation">Legislation</option>
+            <option value="journal">Journals</option>
+            <option value="book">Books</option>
+            <option value="web">Web Sources</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="history-list" id="history-list">
+        <div class="loading-spinner centered" id="loading-spinner"></div>
+        <p id="empty-message" class="empty-message" style="display:none">You haven't saved any references yet.</p>
+      </div>
+      
+      <div class="pagination" id="pagination">
+        <button id="prev-page" class="btn secondary">&laquo; Previous</button>
+        <span id="page-info">Page 1 of 1</span>
+        <button id="next-page" class="btn secondary">Next &raquo;</button>
+      </div>
+    </div>
+    
+    <div class="footer">
+      <button id="sync-btn" class="btn secondary">Sync with CiteRight</button>
+      <p class="text-sm text-center">
+        References are automatically synced with your CiteRight account.
+      </p>
+    </div>
+  </div>
+  
+  <!-- Reference details modal -->
+  <div class="modal" id="reference-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modal-title">Reference Details</h3>
+        <button id="close-modal" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-body">
+        <div class="reference-details">
+          <p><strong>Type:</strong> <span id="ref-type"></span></p>
+          <p><strong>Title:</strong> <span id="ref-title"></span></p>
+          <p><strong>Citation:</strong> <span id="ref-citation"></span></p>
+          <p><strong>Source URL:</strong> <a id="ref-url" href="#" target="_blank"></a></p>
+          <p><strong>Saved on:</strong> <span id="ref-date"></span></p>
+        </div>
+        <div class="reference-actions">
+          <button id="copy-citation" class="btn secondary">Copy Citation</button>
+          <button id="edit-reference" class="btn secondary">Edit</button>
+          <button id="delete-reference" class="btn danger">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="history.js"></script>
+</body>
+</html>

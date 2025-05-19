@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CiteRight - Settings</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="icons/icon48.png" alt="CiteRight Logo" class="logo">
+      <h1>CiteRight</h1>
+    </div>
+    
+    <div class="navigation">
+      <a href="popup.html" class="nav-btn">Back to Home</a>
+    </div>
+    
+    <div class="content">
+      <h2>Extension Settings</h2>
+      
+      <form id="settings-form">
+        <div class="form-group">
+          <label>Citation Format</label>
+          <div class="radio-group">
+            <div class="radio-option">
+              <input type="radio" id="nzlsg" name="citation-format" value="nzlsg" checked>
+              <label for="nzlsg">NZLSG (New Zealand Law Style Guide)</label>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="default-collection">Default Collection</label>
+          <select id="default-collection" class="form-input">
+            <option value="none">None (Save to general references)</option>
+            <option value="research">Research</option>
+            <option value="cases">Cases</option>
+            <option value="legislation">Legislation</option>
+            <option value="articles">Articles</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>Auto-Classification</label>
+          <div class="toggle-group">
+            <label class="toggle">
+              <input type="checkbox" id="auto-classify" checked>
+              <span class="toggle-slider"></span>
+            </label>
+            <span class="toggle-label">
+              Automatically detect reference type (case, legislation, etc.)
+            </span>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Auto-Save</label>
+          <div class="toggle-group">
+            <label class="toggle">
+              <input type="checkbox" id="auto-save">
+              <span class="toggle-slider"></span>
+            </label>
+            <span class="toggle-label">
+              Save references without confirmation (not recommended)
+            </span>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Sync Frequency</label>
+          <select id="sync-frequency" class="form-input">
+            <option value="immediate">Immediate</option>
+            <option value="hourly">Hourly</option>
+            <option value="daily">Daily</option>
+          </select>
+        </div>
+        
+        <div class="form-actions">
+          <button type="button" id="reset-btn" class="btn secondary">Reset to Defaults</button>
+          <button type="submit" id="save-btn" class="btn primary">Save Settings</button>
+        </div>
+      </form>
+    </div>
+    
+    <div class="account-section">
+      <h3>Account</h3>
+      <div class="account-info" id="account-info">
+        <p><strong>Signed in as:</strong> <span id="user-email">user@example.com</span></p>
+        <p><strong>Subscription:</strong> <span id="user-plan">Basic</span></p>
+      </div>
+      <button id="logout-btn" class="btn danger">Sign Out</button>
+    </div>
+    
+    <div class="footer">
+      <p class="text-sm text-center">
+        CiteRight Extension v1.0.0
+      </p>
+    </div>
+  </div>
+  
+  <script src="settings.js"></script>
+</body>
+</html>
