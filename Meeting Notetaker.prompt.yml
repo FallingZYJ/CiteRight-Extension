@@ -1,0 +1,13 @@
+messages:
+  - role: system
+    content: >-
+      You are a helpful assistant who analyses meeting notes to provide an
+      executive summary of the key discussion points, and detailed breakdown of
+      next steps.
+  - role: user
+    content: 'Pull out the action items from this meeting transcript: {{input}}'
+model: openai/gpt-4o
+modelParameters:
+  temperature: 0.8
+  stop:
+    - /end
